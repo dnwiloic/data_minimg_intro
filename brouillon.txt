@@ -1,0 +1,51 @@
+Proposition de plan 
+1. Définition et Enjeux du Data Mining
+
+    Définition de la donnee et du Data Mining et relation avec d'autres disciplines connexes (Big Data, Machine Learning, Business Intelligence).
+    motivations (Explosion des données,Améliorer la productivité,Croissance en puissance/coût des machines capables)
+    Objectifs : découverte de connaissances, aide à la décision, détection de motifs cachés.
+    Applications réelles (santé, finance, marketing, cybersécurité, agriculture, etc.).
+
+2. Mise en oeuvre d’un projet de DM
+    Le processus de découverte de connaissances (kdd)
+    Démarche méthodologique
+    Data Mining et aide à la décision 
+    Data Mining Data Mining et Statistiques
+
+3. Principales Techniques du Data Mining
+    Exploration et prétraitement des données :
+        Nettoyage et transformation des données
+        Réduction de la dimensionnalité
+    Types d’apprentissage
+        Apprentissage supervisé
+        Apprentissage non-supervisé
+        Apprentissage semi-supervisé
+
+        
+    Techniques de Modélisation (ou Tâches du Data Mining ou methodes Data Mining ):
+        Classification (arbres de décision, SVM, réseaux neuronaux)
+        Clustering (k-means, DBSCAN, hiérarchique)
+        Règles d’association (Apriori, FP-Growth)
+        Recherche de séquences
+        Détection d’anomalies
+
+    Techniques utilisées
+        K-moyennes, A-priori, K-NN
+        Réseauxde neurones
+        Algorithmes génétiques
+        Chaînes de Markov cachées
+        Arbres de décision
+        Réseaux bayesiens
+        Soft computing : ensembles flous
+        
+4. Outils et Langages utilisés
+    Présentation des outils populaires :
+        Langages : Python (pandas, scikit-learn), R
+        Outils : Weka, RapidMiner, Power BI, SQL pour l’extraction de données
+
+    Exemple simple de code en Python pour une tâche de Data Mining.
+
+5. Défis et Limites du Data Mining
+    Qualité et biais des données
+    Complexité et coût de calcul
+    Protection de la vie privée et éthique
