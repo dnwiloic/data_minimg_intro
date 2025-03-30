@@ -13,8 +13,78 @@
 
 \maketitle
 
-\section{First Section}
+\section{Démarche méthodologique du Data Mining}
+     \subsection{Comprendre l’application}
+         Avant d’exploiter les données, il est crucial de bien comprendre le contexte d’application. Cette phase initiale permet d’identifier les objectifs du projet, les connaissances préalables disponibles et les attentes des utilisateurs finaux. Il s’agit de répondre à plusieurs questions essentielles : quel problème cherche-t-on à résoudre ? Quels sont les bénéfices attendus ? Quelles sont les contraintes à prendre en compte ? Une bonne compréhension du domaine d’étude oriente les choix méthodologiques et facilite l’interprétation des résultats obtenus.
 
+     \subsection{Sélectionner un échantillon de données}
+         Une base de données peut contenir des millions d’enregistrements, mais il est souvent inefficace, voire impossible, d’analyser l’ensemble des données en une seule fois. Il est donc nécessaire de sélectionner un échantillon représentatif. Cette étape implique le choix d’une méthode d’échantillonnage adaptée :
+    
+         \begin{itemize}
+             \item \textbf{Échantillonnage aléatoire} : sélection d’un sous-ensemble de données de manière aléatoire.
+        
+             \item \textbf{Échantillonnage stratifié} : division des données en groupes homogènes avant la sélection.
+        
+             \item \textbf{Échantillonnage basé sur des critères spécifiques} : choix d’un échantillon répondant à certaines conditions précises.
+         \end{itemize}
+    
+        Un échantillonnage pertinent garantit une bonne représentativité et permet d’effectuer des analyses plus rapides et précises.
+
+     \subsection{Nettoyage et transformation des données}
+
+         Les données brutes sont souvent imparfaites : elles peuvent contenir des valeurs manquantes, des incohérences ou des erreurs de saisie. Il est donc impératif de nettoyer et de transformer les données avant de les exploiter. Cette phase inclut :
+         \begin{itemize}
+             \item \textbf{Suppression du bruit} : élimination des données superflues, marginales ou erronées.
+    
+            \item \textbf{Gestion des valeurs manquantes} : suppression, estimation ou imputation des valeurs absentes.
+    
+             \item \textbf{Réduction de la dimensionnalité} : sélection des attributs les plus pertinents pour diminuer la complexité du problème.
+         \end{itemize}
+         
+    
+         Un bon prétraitement des données améliore la qualité des modèles et évite d’obtenir des résultats biaisés.
+
+     \subsection{Appliquer les techniques de fouille de données}
+
+         Une fois les données préparées, les techniques de Data Mining peuvent être appliquées. Le choix des algorithmes dépend du type de problème à résoudre :
+    
+         \begin{itemize}
+             \item \textbf{Classification} : attribution d’une catégorie à chaque observation (ex. : arbres de décision, réseaux de neurones, SVM).
+        
+             \item \textbf{Clustering} : regroupement des données en classes homogènes sans étiquette prédéfinie (ex. : k-means, DBSCAN).
+        
+             \item \textbf{Règles d’association} : détection de relations entre les attributs des données (ex. : algorithmes Apriori, FP-Growth).
+        
+             \item \textbf{Détection d’anomalies} : identification de valeurs atypiques dans un ensemble de données (ex. : isolation forest, SVM à une classe).
+         \end{itemize}
+    
+         Le choix du bon algorithme dépend de la nature des données et des objectifs fixés.
+
+     \subsection{Visualiser, évaluer et interpréter les modèles}
+         Après l’application des algorithmes, il est essentiel d’évaluer la qualité des modèles obtenus. Cette phase comprend :
+    
+         \begin{itemize}
+             \item \textbf{Analyse de la pertinence des résultats} : mesure de la valeur ajoutée par les connaissances découvertes.
+        
+             \item \textbf{Vérification de la validité} : test des modèles sur un jeu de données indépendant pour éviter le surapprentissage.
+        
+             \item \textbf{Amélioration continue} : ajustement des paramètres, sélection d’autres algorithmes si les résultats ne sont pas satisfaisants.
+         \end{itemize}
+    
+         L’évaluation rigoureuse permet de garantir que les modèles sont exploitables et fiables.    
+
+     \subsection{ Gérer et exploiter la connaissance découverte}
+         Une fois les modèles validés, les connaissances extraites doivent être mises à disposition des décideurs ou intégrées dans des systèmes d’aide à la décision. Cela peut se faire sous différentes formes :
+
+         \begin{itemize}
+             \item \textbf{Tableaux de bord et rapports} : visualisation des résultats pour une prise de décision éclairée.
+        
+             \item \textbf{Intégration avec d’autres systèmes} : utilisation des résultats dans des bases de données, des systèmes experts ou des plateformes d’IA.
+        
+             \item \textbf{Partage et échange des connaissances} : mise en réseau des découvertes avec d’autres applications ou services.
+         \end{itemize}
+         Cette dernière étape assure que le travail réalisé en Data Mining a un impact concret et opérationnel.
+     
 Hello Guy!
 
 \end{document}

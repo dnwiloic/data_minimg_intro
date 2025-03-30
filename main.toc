@@ -1,0 +1,19 @@
+\babel@toc {nil}{}\relax 
+\contentsline {chapter}{\numberline {1}Définition et Enjeux du Data Mining}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Méthodologie}{3}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Mise en oeuvre d’un projet de DM}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Le processus de découverte de connaissances (kdd)}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Démarche méthodologique du Data Mining}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Comprendre l’application}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Sélectionner un échantillon de données}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Nettoyage et transformation des données}{6}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Appliquer les techniques de fouille de données}{7}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Visualiser, évaluer et interpréter les modèles}{7}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6} Gérer et exploiter la connaissance découverte}{7}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3} Principales Techniques du Data Mining}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Exploration et prétraitement des données }{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Types d’apprentissage }{8}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Outils et Langages utilisés}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Méthodologie}{9}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Défis et Limites du Data Mining}{10}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Méthodologie}{10}{section.5.1}%
