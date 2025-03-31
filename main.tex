@@ -4,9 +4,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+\usepackage{unicode-math}
+\usepackage{amssymb}
+
+
 
 % Mise en page
-\usepackage{geometry}s
+\usepackage{geometry}
 \geometry{margin=2.5cm}
 
 % Packages utiles
@@ -18,6 +22,9 @@
 \usepackage{float}  % Pour le placement des figures
 
 \usepackage{enumitem} 
+
+\DeclareUnicodeCharacter{2260}{\neq}
+
 
 \title{ Introduction au Data Mining}
 \author{DNJOMOU YONMBA WILFRIED LOIC CM-UDS-24SCI0999 \\
@@ -181,10 +188,11 @@ Avant d’aller plus en détail sur ce qu’est le data mining, commençons par 
         La BI se concentre sur le suivi et l'amélioration des opérations commerciales en analysant les données historiques et actuelles, tandis que le Data Mining cherche à découvrir des modèles et des relations cachés pour prédire des résultats futurs. Le Data Mining peut être intégré dans les processus de BI pour enrichir les analyses en fournissant des insights prédictifs, permettant ainsi aux entreprises de prendre des décisions plus éclairées et proactives.
 \newpage
 
-        
 \chapter{Approches et Processus du Data Mining}
-    Le Data Mining est un processus complexe qui ne se limite pas à l’application d’algorithmes sur des données brutes. Il suit une démarche structurée qui permet d’extraire des connaissances exploitables à partir de vastes ensembles de données. Au fil des années, plusieurs méthodologies ont été développées pour encadrer cette démarche et garantir des résultats pertinents et reproductibles.\\
-    Parmi les approches les plus influentes, on distingue le \textbf{processus KDD (Knowledge Discovery in Databases)}, qui pose les bases théoriques du Data Mining, et \textbf{CRISP-DM (Cross-Industry Standard Process for Data Mining)}, qui s’est imposé comme un standard industriel largement utilisé.\\
+    Le Data Mining est un processus complexe qui ne se limite pas à l’application d’algorithmes sur des données brutes. Il suit une démarche structurée qui permet d’extraire des connaissances exploitables à partir de vastes ensembles de données. Au fil des années, plusieurs méthodologies ont été développées pour encadrer cette démarche et garantir des résultats pertinents et reproductibles.
+    
+    Parmi les approches les plus influentes, on distingue le \textbf{processus KDD (Knowledge Discovery in Databases)}, qui pose les bases théoriques du Data Mining, et \textbf{CRISP-DM (Cross-Industry Standard Process for Data Mining)}, qui s’est imposé comme un standard industriel largement utilisé.
+    
     Dans cette section, nous allons explorer ces deux méthodologies en détail. Nous verrons comment \textbf{KDD} structure l’extraction de connaissances d’un point de vue académique, et comment \textbf{CRISP-DM} adapte cette démarche aux besoins des entreprises en proposant un cadre plus opérationnel et itératif.
 
     \section{Le processus de découverte de connaissances (KDD)}
@@ -271,9 +279,8 @@ Avant d’aller plus en détail sur ce qu’est le data mining, commençons par 
 
         
 \chapter{ Principales Techniques du Data Mining}
-Présentation du sujet et des objectifs du rapport.
 
-\section{Exploration et prétraitement des données }
+    \section{Exploration et prétraitement des données }
 
     \section{Types d’apprentissage}
     
@@ -364,9 +371,9 @@ Présentation du sujet et des objectifs du rapport.
 
             \begin{itemize}
                 \item  Objectif : apprendre un modèle à partir de données étiquetées pour prédire la classe d’objets inconnus.
-                \item  Fonctionnement : le modèle est entraîné sur un ensemble de données où chaque exemple est associé à une classe, puis il est utilisé pour classer de nouvelles données.
+                \item  Fonctionnement : le modèle est entraîné sur un ensemble de données où chaque exemple est associé à une classe, puis il est utilisé pour classer de nouvelles données.\\
             \end{itemize}
-            {\\}
+            % {\\}
             La classification utilise un ensemble $D$ de données appelées ensemble d’apprentissage. Chaque donnée est typiquement représentée sous forme d’un vecteur d’attributs 
             $x = \langle x_1, x_2, \dots, x_m, y \rangle$ avec $y$ un attribut de classe. 
             
@@ -408,40 +415,57 @@ Présentation du sujet et des objectifs du rapport.
         \subsubsection*{Techniques}
 
         \subsubsection*{a) Arbres de Décision}
-        Les arbres de décision sont un algorithme d’apprentissage supervisé utilisé pour la classification et la régression, modélisant les décisions sous forme d’une structure arborescente. Ils sont particulièrement appréciés pour leur interprétabilité et leur polyvalence.\\
 
-        Un arbre de décision est décision est un arbre où : 
-        \begin{itemize}
-            \item Noeud interne interne = un attribu
-            \item Branche Branche d’un noeud = un test sur un attribut
-            \item Feuilles Feuilles = classe donnée
-        \end{itemize}
+            Un arbre de décision est un modèle prédictif sous forme d'une structure arborescente, où chaque nœud interne représente une "question" ou un "test" sur une caractéristique (par exemple, si une valeur numérique est supérieure à un seuil donné ou si une catégorie spécifique est présente). Chaque branche descendante de ce nœud correspond à l'une des réponses possibles à cette question, et chaque nœud feuille (ou terminal) de l'arbre représente une prédiction ou une décision prise à la suite des réponses aux questions précédentes. 
+             \subsubsection{Fonctionnement :}
+            - Construction de l'arbre : À partir d'un ensemble de données d'entraînement, l'algorithme divise l'ensemble en sous-ensembles en utilisant une méthode de sélection de caractéristiques basée sur des critères comme l'indice de Gini, l'entropie ou la réduction de la variance. Ce processus est répété de manière récursive jusqu'à ce qu'un critère d'arrêt soit atteint, comme une profondeur maximale de l'arbre ou un nombre minimal d'échantillons dans un nœud feuille.
+            
+            - Prédiction : Pour faire une prédiction, on suit le chemin dans l'arbre en partant de la racine, en posant les questions correspondant à chaque nœud interne en fonction des caractéristiques de l'instance à classer ou à évaluer, jusqu'à atteindre un nœud feuille qui donne la prédiction finale.
+            
+            \subsubsection{ Exemples d'application :}
 
-       Le processus repose sur une série de tests successifs sur les attributs des données. À chaque étape, un attribut est choisi pour partitionner les données, et cette division est répétée récursivement jusqu’à ce que les sous-ensembles soient suffisamment purs, c’est-à-dire qu’ils contiennent majoritairement des échantillons d’une seule classe.
+            \begin{itemize}
+                \item Diagnostic médical : Un arbre de décision peut être utilisé pour diagnostiquer des maladies en se basant sur les symptômes et les résultats d'examens des patients. Chaque nœud interne représenterait un symptôme ou un résultat de test, et les nœuds feuilles représenteraient les diagnostics possibles
 
-Le critère central est la sélection de l’attribut qui maximise la pureté des sous-ensembles. Deux mesures courantes sont utilisées :
-- Entropie : elle quantifie le désordre dans un ensemble. Une entropie faible indique une répartition homogène des classes.
-- Indice de Gini : il mesure l’impureté. Un indice faible signifie que les classes sont bien séparées.
-
-L’objectif est de minimiser ces métriques pour créer des partitions où les classes sont distinctes.
-
+                 \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{images/decision tree example.png}
+                    \caption{decision tree example}
+                    \label{fig:decision tree example}
+                \end{figure}
+                \item Sélection de candidat : Les entreprises peuvent utiliser les arbres de décision pour filtrer les candidats à un poste en fonction de différents critères comme l'expérience, les compétences, l'éducation et les performances aux tests d'évaluation. L'arbre pourrait aider à décider si un candidat doit passer à l'étape suivante du processus de recrutement.
+            \end{itemize}
+            
         \subsubsection*{b) Machines à Vecteurs de Support (SVM)}
-        Les SVM cherchent à identifier un hyperplan qui sépare les données de deux classes avec la marge la plus large possible. Cet hyperplan est le plan qui maximise la distance aux points les plus proches de chaque classe, appelés vecteurs de support. La marge est la zone vide entre l’hyperplan et ces points.
-
-Si les données ne sont pas linéairement séparables dans leur espace d’origine, les SVM utilisent des fonctions noyau (comme le noyau polynomial ou RBF) pour projeter les données dans un espace de dimension supérieure où une séparation linéaire devient possible.
+        La machine à vecteurs de support (SVM, pour "Support Vector Machine" en anglais) est une méthode d'apprentissage supervisé utilisée pour la classification et la régression. Elle vise à trouver l'hyperplan optimal qui sépare au mieux les différentes classes de données dans l'espace des caractéristiques. Cet hyperplan est choisi de manière à maximiser la marge entre les deux classes les plus proches de l'hyperplan, ces données étant appelées vecteurs de support.
+        
+        Les SVM sont particulièrement efficaces dans les espaces de grande dimension et dans les cas où le nombre de dimensions dépasse le nombre d'échantillons. Ils sont également polyvalents grâce à l'utilisation de fonctions noyau (kernel functions), qui permettent de traiter les données linéairement non séparables en les projetant dans un espace de plus grande dimension où elles deviennent séparables.
+        
+        \subsubsection{Exemples d'application :}
+        
+        Reconnaissance de visages : Les SVM peuvent être utilisés pour identifier les personnes à partir de caractéristiques extraites de leurs visages, ce qui est utile dans les systèmes de sécurité et de surveillance.
         
         \subsubsection*{c) Réseaux de Neurones}
         Les réseaux de neurones sont des modèles d’apprentissage automatique inspirés du cerveau humain, composés de couches de neurones interconnectés pour traiter des données et apprendre des patterns complexes.
         Ils sont constitués de couches de neurones interconnectés : une couche d’entrée, une ou plusieurs couches cachées, et une couche de sortie. Chaque neurone calcule une combinaison linéaire de ses entrées (pondérées par des poids) et applique une fonction d’activation pour produire une sortie.
 
-L’apprentissage consiste à ajuster les poids pour minimiser une fonction de perte, qui mesure l’écart entre les prédictions du réseau et les vraies étiquettes. Cet ajustement se fait via la rétropropagation du gradient, qui propage l’erreur de la sortie vers l’entrée pour mettre à jour les poids.
+        L’apprentissage consiste à ajuster les poids pour minimiser une fonction de perte, qui mesure l’écart entre les prédictions du réseau et les vraies étiquettes. Cet ajustement se fait via la rétropropagation du gradient, qui propage l’erreur de la sortie vers l’entrée pour mettre à jour les poids.
+
+        \subsubsection{Applications de la classification par réseaux de neurones en data mining:}
+
+        1. Reconnaissance d'images: Les réseaux de neurones convolutifs (CNN) sont largement utilisés pour classer des images dans des catégories, telles que la reconnaissance faciale ou l'identification d'objets.
         
-        \subsubsection*{d) k-Plus Proches Voisins (k-NN)}
-        k-NN est un algorithme paresseux, c’est-à-dire qu’il ne construit pas de modèle explicite pendant l’entraînement. Pour classer une nouvelle donnée, il identifie les k échantillons les plus proches dans l’ensemble d’entraînement et attribue la classe majoritaire parmi ces voisins.
+        2. Diagnostic médical: Les réseaux de neurones peuvent être entraînés pour classer des images médicales (comme des radiographies ou des IRM) pour aider à identifier des conditions ou des maladies spécifiques.
+        
+        3. Détection de fraude: Dans le secteur financier, les réseaux de neurones peuvent être utilisés pour classer les transactions en tant que légitimes ou frauduleuses, en se basant sur des motifs complexes dans les données.
 
-La proximité est généralement mesurée avec la distance euclidienne(\( \sqrt{\sum (x_i - y_i)^2} \)), mais d’autres métriques comme la distance de Manhattan peuvent être utilisées selon le contexte.
+        
+%         \subsubsection*{d) k-Plus Proches Voisins (k-NN)}
+%         k-NN est un algorithme paresseux, c’est-à-dire qu’il ne construit pas de modèle explicite pendant l’entraînement. Pour classer une nouvelle donnée, il identifie les k échantillons les plus proches dans l’ensemble d’entraînement et attribue la classe majoritaire parmi ces voisins.
 
-        \subsection{Clustering ( (Segmentation) )}
+% La proximité est généralement mesurée avec la distance euclidienne(\( \sqrt{\sum (x_i - y_i)^2} \)), mais d’autres métriques comme la distance de Manhattan peuvent être utilisées selon le contexte.
+
+        \subsection{Clustering ( Segmentation )}
         
         Le \textbf{clustering} (ou regroupement) vise à regrouper des objets similaires en clusters, sans utiliser de classes prédéfinies. Il est utilisé pour découvrir des structures ou des motifs cachés dans des données non étiquetées.
         
@@ -449,9 +473,9 @@ La proximité est généralement mesurée avec la distance euclidienne(\( \sqrt{
         
         \begin{itemize}
             \item  Objectif : identifier des groupes naturels dans les données, où les objets d’un même cluster sont plus similaires entre eux que ceux des autres clusters.
-            \item  Fonctionnement : les algorithmes de clustering analysent les similitudes entre les objets et les regroupent en conséquence.
+            \item  Fonctionnement : les algorithmes de clustering analysent les similitudes entre les objets et les regroupent en conséquence.\\
         \end{itemize}
-        {\\}
+        % {\\}
         Formellement : Soit X un ensemble de N données décrites chacune par leurs P
         attributs, la segmentation consiste a créer une décomposition de cet ensemble
         en groupes telle que les données appartenant au même groupe se ressemblent,
@@ -483,9 +507,9 @@ La proximité est généralement mesurée avec la distance euclidienne(\( \sqrt{
         dans cette approche est «k-means» . La méthode du choix de la
         valeur de k (nombre de centroides initial) est un champs d’investigation. Par
         défaut, k est choisi aléatoirement. Le critère d’arrêt peut être soit la stabilisation
-        des objets, ou bien d’autre mesures comme l’inertie. 
+        des objets, ou bien d’autre mesures comme l’inertie. \\
 
-\\
+
         \begin{enumerate}[leftmargin=*]
             \item Déterminer le nombre de Clusters \( K\)
             \item Prendre \( K \) objets arbitraires «~centroides~»
@@ -749,6 +773,9 @@ En conclusion, la régression est une technique puissante pour la prédiction nu
 \chapter{Outils et Langages utilisés}
 Il existe une multitude d’outils pour effectuer des tâches de Data Mining. Voici quelques-uns des outils les plus populaires, chacun offrant ses propres fonctionnalités et avantages :
 
+    \section{Le language R}
+    \textbf{R} est un \emph{langage de programmation} statistique avec de nombreuses bibliothèques pour la fouille de données.  Un des atouts de R est la facilité avec laquelle des graphiques bien conçus, de qualité digne de publication, peuvent être produits, contenant des symboles mathématiques et des formules si besoin est. Un grand soin a été accordé à la prise en charge des options par défaut pour les choix mineurs dans la conception des graphiques, mais l'utilisateur conserve le contrôle complet de ces options. R est publié selon les termes de la licence GNU sous forme de code source. Il se compile et s'exécute sous une grande variété de plates-formes UNIX et de systèmes similaires, y compris FreeBSD et Linux, Windows et MacOS.
+    
     \section{Python}
     \textbf{Python} est un \emph{langage de programmation} polyvalent largement utilisé dans le domaine de la Data Science et du Data Mining. Il offre une vaste gamme de bibliothèques et de frameworks tels que Pandas, NumPy, scikit-learn, TensorFlow, etc., qui permettent d’effectuer diverses tâches d’analyse de données, de modélisation et de visualisation.
 
@@ -769,7 +796,6 @@ Il existe une multitude d’outils pour effectuer des tâches de Data Mining. Vo
     
     \section{SAS}
     \textbf{SAS Enterprise Miner} est une solution logicielle robuste conçue pour l’analyse prédictive et le Data Mining. Il offre une large gamme d’algorithmes de modélisation avancés, une interface conviviale pour la création de workflows et des fonctionnalités de déploiement de modèles. SAS Enterprise Miner est largement utilisé dans les entreprises pour résoudre des problèmes complexes liés à l’analyse de données.
-
 
 
 
