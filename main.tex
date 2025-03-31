@@ -51,9 +51,10 @@ Présentation du sujet et des objectifs du rapport.
 
     \section{Le processus de découverte de connaissances (KDD)}
         Face à l'énorme quantité de données stockées dans des fichiers, des bases de données et autres référentiels, il est de plus en plus important, voire nécessaire, de développer des outils performants d'analyse et d'interprétation de ces données, ainsi que d'extraction de connaissances pertinentes susceptibles d'aider à la prise de décision.
-        L'exploration de données, également appelée découverte de connaissances dans les bases de données (KDD: Knowledge Discovery in Databases), désigne l'extraction non triviale d'informations implicites, jusqu'alors inconnues et potentiellement utiles, à partir de données stockées dans des bases de données. Bien que le data mining et la découverte de connaissances dans les bases de données (KDD) soient souvent considérées comme des synonymes, le data mining fait en réalité partie du processus de découverte de connaissances. La figure suivante (Figure 2.1) illustre l'exploration de données comme une étape d'un processus itératif de découverte de connaissances.
+        L'exploration de données, également appelée découverte de connaissances dans les bases de données (KDD: Knowledge Discovery in Databases), désigne l'extraction non triviale d'informations implicites, jusqu'alors inconnues et potentiellement utiles, à partir de données stockées dans des bases de données. Bien que le data mining et la découverte de connaissances dans les bases de données (KDD) soient souvent considérées comme des synonymes, le data mining fait en réalité partie du processus de découverte de connaissances. La figure suivante (Figure 2.1) illustre la fouille de données comme une étape d'un processus itératif de découverte de connaissances.\\
+        \clearpage
 
-        \begin{figure}[h]
+        \begin{figure}[]
             \centering
             \includegraphics[width=0.75\textwidth]{KDD_data_mining}
             \caption{Data mining : coeur de KDD.}
@@ -86,8 +87,9 @@ Présentation du sujet et des objectifs du rapport.
             \item En tant que \textbf{méthodologie}, CRISP-DM comprend des descriptions des phases typiques d'un projet et des tâches comprises dans chaque phase, et une explication des relations entre ces tâches.
             \item En tant que \textbf{modèle de processus}, CRISP-DM offre un aperçu du cycle de vie de l'exploration de données.
         \end{itemize}
-    
-        \begin{figure}[h]
+        
+        \clearpage
+        \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.75\textwidth]{crispdm}
                 \caption{Le cycle de vie de l'exploration des données.}
@@ -95,7 +97,7 @@ Présentation du sujet et des objectifs du rapport.
         \end{figure} 
 
         \subsection{Les étapes de CRISP-DM}
-        Le modèle de cycle de vie comporte six phases dotées de flèches indiquant les dépendances les plus importantes et les plus fréquentes entre les phases. La séquence des phases n'est pas strictement établie. De fait, les projets, pour la plupart, passent d'une phase à l'autre en fonction des besoins. 
+        Le modèle de cycle de vie comporte six(6) phases dotées de flèches indiquant les dépendances les plus importantes et les plus fréquentes entre les phases. La séquence des phases n'est pas strictement établie. De fait, les projets, pour la plupart, passent d'une phase à l'autre en fonction des besoins. 
 
             \subsubsection{Etape 1 : La compréhension du besoin client ou business understanding}
             Dans cette phase initiale, l’équipe de data science travaille en collaboration avec les parties prenantes afin de comprendre les objectifs commerciaux, les exigences, les contraintes du projet ainsi que les bénéfices attendus.\\ 
@@ -267,16 +269,39 @@ Présentation du sujet et des objectifs du rapport.
   
         \subsubsection*{Techniques}
 
-        \begin{enumerate}[label=\alph*)]
-            \item Arbres de décision
-            
-            \item machines à vecteurs de support (SVM)
-            
-            \item réseaux de neurones
-            
-            \item k-plus proches voisins (k-NN)
-            
-        \end{enumerate}
+        \subsubsection*{a) Arbres de Décision}
+        Les arbres de décision sont un algorithme d’apprentissage supervisé utilisé pour la classification et la régression, modélisant les décisions sous forme d’une structure arborescente. Ils sont particulièrement appréciés pour leur interprétabilité et leur polyvalence.\\
+
+        Un arbre de décision est décision est un arbre où : 
+        \begin{itemize}
+            \item Noeud interne interne = un attribu
+            \item Branche Branche d’un noeud = un test sur un attribut
+            \item Feuilles Feuilles = classe donnée
+        \end{itemize}
+
+       Le processus repose sur une série de tests successifs sur les attributs des données. À chaque étape, un attribut est choisi pour partitionner les données, et cette division est répétée récursivement jusqu’à ce que les sous-ensembles soient suffisamment purs, c’est-à-dire qu’ils contiennent majoritairement des échantillons d’une seule classe.
+
+Le critère central est la sélection de l’attribut qui maximise la pureté des sous-ensembles. Deux mesures courantes sont utilisées :
+- Entropie : elle quantifie le désordre dans un ensemble. Une entropie faible indique une répartition homogène des classes.
+- Indice de Gini : il mesure l’impureté. Un indice faible signifie que les classes sont bien séparées.
+
+L’objectif est de minimiser ces métriques pour créer des partitions où les classes sont distinctes.
+
+        \subsubsection*{b) Machines à Vecteurs de Support (SVM)}
+        Les SVM cherchent à identifier un hyperplan qui sépare les données de deux classes avec la marge la plus large possible. Cet hyperplan est le plan qui maximise la distance aux points les plus proches de chaque classe, appelés vecteurs de support. La marge est la zone vide entre l’hyperplan et ces points.
+
+Si les données ne sont pas linéairement séparables dans leur espace d’origine, les SVM utilisent des fonctions noyau (comme le noyau polynomial ou RBF) pour projeter les données dans un espace de dimension supérieure où une séparation linéaire devient possible.
+        
+        \subsubsection*{c) Réseaux de Neurones}
+        Les réseaux de neurones sont des modèles d’apprentissage automatique inspirés du cerveau humain, composés de couches de neurones interconnectés pour traiter des données et apprendre des patterns complexes.
+        Ils sont constitués de couches de neurones interconnectés : une couche d’entrée, une ou plusieurs couches cachées, et une couche de sortie. Chaque neurone calcule une combinaison linéaire de ses entrées (pondérées par des poids) et applique une fonction d’activation pour produire une sortie.
+
+L’apprentissage consiste à ajuster les poids pour minimiser une fonction de perte, qui mesure l’écart entre les prédictions du réseau et les vraies étiquettes. Cet ajustement se fait via la rétropropagation du gradient, qui propage l’erreur de la sortie vers l’entrée pour mettre à jour les poids.
+        
+        \subsubsection*{d) k-Plus Proches Voisins (k-NN)}
+        k-NN est un algorithme paresseux, c’est-à-dire qu’il ne construit pas de modèle explicite pendant l’entraînement. Pour classer une nouvelle donnée, il identifie les k échantillons les plus proches dans l’ensemble d’entraînement et attribue la classe majoritaire parmi ces voisins.
+
+La proximité est généralement mesurée avec la distance euclidienne(\( \sqrt{\sum (x_i - y_i)^2} \)), mais d’autres métriques comme la distance de Manhattan peuvent être utilisées selon le contexte.
 
         \subsection{Clustering ( (Segmentation) )}
         
@@ -473,78 +498,138 @@ Il est également important de sélectionner les attributs pertinents pour évit
 
 En conclusion, la régression est une technique puissante pour la prédiction numérique, offrant une gamme de modèles adaptés à différents types de données et de relations entre variables.  
         \subsection{Détection d’anomalies}
-        
-        La \textbf{détection d’anomalies} (ou détection d’outliers) consiste à identifier des données qui dévient significativement du comportement normal ou attendu.
-        
-        \subsubsection*{Description}
-        
-        \begin{itemize}
-            \item  Objectif : repérer des observations inhabituelles qui peuvent indiquer des erreurs, des fraudes ou des événements rares.
-            \item  Fonctionnement : les algorithmes apprennent ce qui est « normal » et signalent les données qui s’écartent de ce modèle.
-        \end{itemize}
-        
-        \subsubsection*{Exemples}
-        
-        \begin{itemize}
-            \item  Détection de fraudes : identifier des transactions bancaires suspectes.
-            \item  Surveillance de systèmes : détecter des pannes ou des dysfonctionnements dans des machines industrielles.
-            \item  Applications : cybersécurité (détection d’intrusions), maintenance prédictive, contrôle qualité.
-        \end{itemize}
-        
-        \subsubsection*{Techniques}
-        
-        \begin{itemize}
-            \item Isolation Forest, One-Class SVM, auto-encodeurs, méthodes basées sur la densité.
-        \end{itemize}
-        
+
         \subsection{Extraction de règles d’association}
         
-        L’\textbf{extraction de règles d’association} vise à découvrir des relations ou des corrélations entre des variables dans de grandes bases de données.
+        L'\textbf{extraction de règles d’association} est une tâche fondamentale en fouille de données (data mining), visant à identifier des relations implicites et significatives entre les attributs dans de grandes bases de données. Introduite par Agrawal et al. , cette technique est particulièrement reconnue pour son application dans l’analyse du panier de marché. Elle permet, par exemple, de dégager des règles telles que « 70\% des clients achetant du lait et du thé achètent aussi du pain », utiles pour optimiser l’agencement des rayons, planifier des promotions ou gérer les stocks dans un objectif d’amélioration des profits.
         
-        \subsubsection*{Description}
+        Dans ce contexte, une base de données transactionnelle est un ensemble de transactions, où chaque transaction représente un sous-ensemble d’attributs (ou items) achetés par un client. Une règle d’association est une implication conditionnelle de la forme \( X \rightarrow Y \), où \( X \) et \( Y \) sont des ensembles d’attributs disjoints, exprimant que l’occurrence de \( X \) dans une transaction est souvent associée à celle de \( Y \). Le problème est complexe en raison du nombre exponentiel d’attributs possibles et du volume des bases transactionnelles, qui peuvent contenir des millions de transactions sur des milliers d’attributs.
         
+        % Ce chapitre explore les processus d’extraction des règles d’association dans un contexte binaire. Il est structuré comme suit : la problématique est exposée dans la Section \ref{sec:prob_assoc}, les définitions et principes de base, incluant l’algorithme APRIORI, sont présentés dans la Section \ref{sec:def_principes}, les représentations condensées des motifs fréquents sont abordées dans la Section \ref{sec:rep_condensees}, et une conclusion est donnée dans la Section \ref{sec:concl_assoc}.
+        
+        \subsubsection{Problématique}
+        \label{sec:prob_assoc}
+        
+        Le cadre classique de la fouille des règles d’association peut être décrit ainsi : soit \( A = \{x_1, x_2, \dots, x_m\} \) un ensemble de \( m \) attributs (ou items), et \( E = \{e_1, e_2, \dots, e_n\} \) un ensemble de \( n \) transactions, chaque transaction \( e_i \) étant un sous-ensemble de \( A \). Chaque transaction est associée à un identifiant unique (TID, Transaction IDentifier). Un motif est un sous-ensemble de \( A \), et une règle d’association est une implication \( X \rightarrow Y \) (où \( Y \neq \emptyset \)), indiquant que les attributs de \( X \) tendent à apparaître avec ceux de \( Y \).
+        
+        Les mesures clés pour évaluer une règle sont :
         \begin{itemize}
-            \item  Objectif : trouver des motifs fréquents et des associations entre les items d’un ensemble de données.
-            \item  Fonctionnement : les algorithmes identifient des ensembles d’items qui apparaissent fréquemment ensemble et génèrent des règles du type « si A, alors B ».
+            \item Le \textbf{support} d’un motif \( X \), défini par \( \text{Supp}(X) = \frac{|\{e \in E \mid X \subseteq e\}|}{|E|} \), soit la proportion de transactions contenant \( X \).
+            \item Le \textbf{support} d’une règle \( X \rightarrow Y \), égal à \( \text{Supp}(X \cup Y) \).
+            \item La \textbf{confiance} d’une règle, définie par \( \text{Conf}(X \rightarrow Y) = \frac{\text{Supp}(X \cup Y)}{\text{Supp}(X)} \), soit la proportion de transactions contenant \( Y \) parmi celles contenant \( X \).
         \end{itemize}
         
-        \subsubsection*{Exemples}
+        Le problème consiste à identifier toutes les règles valides, c’est-à-dire celles dont le support et la confiance dépassent des seuils minimaux prédéfinis, \( \text{minsupp} \) et \( \text{minconf} \). Ce problème est décomposé en deux étapes \cite{HGN00} :
+        \begin{enumerate}
+            \item Trouver tous les \textbf{motifs fréquents}, i.e., les motifs dont \( \text{Supp}(X) \geq \text{minsupp} \).
+            \item Générer les règles d’association valides à partir de ces motifs fréquents.
+        \end{enumerate}
         
+        La première étape est la plus coûteuse, car l’espace de recherche des motifs fréquents est exponentiel. Dans les bases fortement corrélées ou avec un \( \text{minsupp} \) faible, le nombre de motifs peut devenir ingérable, nécessitant des optimisations comme les représentations condensées.
+        
+        \subsubsection{Définitions et principes de base}
+        \label{sec:def_principes}
+        
+        Soit \( K = (E, A, R) \) un contexte de fouille de données, où \( R \) est une relation binaire entre les transactions \( E \) et les attributs \( A \). Les définitions fondamentales sont les suivantes :
         \begin{itemize}
-            \item  Analyse de panier d’achat : découvrir que les clients qui achètent du pain achètent souvent du beurre.
-            \item  Recommandation de produits : suggérer des articles en fonction des achats précédents.
-            \item  Applications : marketing, bioinformatique (relations entre gènes), analyse de logs.
+            \item Un \textbf{motif} \( X \subseteq A \) est un ensemble d’attributs.
+            \item Un motif est \textbf{fréquent} si \( \text{Supp}(X) \geq \text{minsupp} \).
+            \item Une \textbf{règle d’association} \( X \rightarrow Y \) est valide si \( \text{Supp}(X \cup Y) \geq \text{minsupp} \) et \( \text{Conf}(X \rightarrow Y) \geq \text{minconf} \).
         \end{itemize}
         
-        \subsubsection*{Techniques}
+        \paragraph{L’algorithme APRIORI}
         
+        L’algorithme \textbf{APRIORI} \cite{AS94} est une méthode pionnière pour extraire les motifs fréquents. Il repose sur la propriété d’anti-monotonicité du support : si un motif \( X \) est fréquent, tous ses sous-ensembles le sont aussi ; inversement, si \( X \) n’est pas fréquent, aucun de ses sur-ensembles ne l’est. Formellement :
         \begin{itemize}
-            \item Apriori, FP-Growth, Eclat.
+            \item Si \( X \subseteq Y \), alors \( \text{Supp}(X) \geq \text{Supp}(Y) \).
+            \item Si \( X \) est fréquent, tout \( X_1 \subseteq X \) l’est aussi.
+            \item Si \( X \) n’est pas fréquent, tout \( X_2 \supseteq X \) ne l’est pas.
         \end{itemize}
+        
+        L’algorithme procède itérativement :
+        \begin{enumerate}
+            \item Initialisation : trouver les 1-motifs fréquents (\( F_1 \)).
+            \item Pour chaque niveau \( k \geq 2 \) :
+                \begin{enumerate}
+                    \item Générer les candidats \( C_k \) à partir des motifs fréquents \( F_{k-1} \) (via une jointure et un élagage basé sur l’anti-monotonicité).
+                    \item Calculer le support des candidats en parcourant la base.
+                    \item Retenir les motifs fréquents \( F_k = \{c \in C_k \mid \text{Supp}(c) \geq \text{minsupp}\} \).
+                \end{enumerate}
+            \item Arrêt : lorsque \( F_{k-1} = \emptyset \).
+        \end{enumerate}
+        
+        Le pseudo-code est le suivant :
+        \begin{verbatim}
+        Entrée : K (base transactionnelle), minsupp
+        Sortie : F (ensemble des motifs fréquents)
+        1: F_1 ← {1-motifs fréquents}
+        2: for (k ← 2; F_{k-1} ≠ ∅; k++)
+        3:     C_k ← Apriori-Gen(F_{k-1})
+        4:     for all e ∈ E
+        5:         C_E ← {c ∈ C_k | c ⊆ e}
+        6:         for all c ∈ C_E
+        7:             Supp(c)++
+        8:         end for
+        9:     F_k ← {c ∈ C_k | Supp(c) ≥ minsupp}
+        10: end for
+        11: Retourner F ← ∪_k F_k
+        \end{verbatim}
+        
+        \paragraph{Génération des règles}
+        
+        À partir des motifs fréquents \( F \), pour chaque motif \( I \in F \), on génère les règles \( X \rightarrow Y \) (où \( I = X \cup Y \), \( Y \neq \emptyset \)) en vérifiant \( \text{Conf}(X \rightarrow Y) \geq \text{minconf} \). Une optimisation \cite{AS94} exploite la propriété suivante : si \( I_1 \rightarrow I \setminus I_1 \) est valide, alors toute règle avec une prémisse \( I_2 \subset I_1 \) l’est aussi, réduisant ainsi le nombre de règles à tester.
+        
+        \subsubsection{Représentations condensées}
+        \label{sec:rep_condensees}
+        
+        L’extraction exhaustive des motifs fréquents peut être prohibitive en termes de temps et de mémoire. Les \textbf{représentations condensées} sont des sous-ensembles compacts de motifs fréquents permettant de dériver l’ensemble complet des motifs et leurs supports. Voici quelques approches :
+        
+        \paragraph{Motifs fermés fréquents}
+        
+        Un motif \( X \) est \textbf{fermé} si aucun sur-ensemble n’a le même support (\( \phi(X) = X \), où \( \phi \) est un opérateur de fermeture). L’ensemble des motifs fermés fréquents \( FF = \{X \subseteq A \mid \phi(X) = X, \text{Supp}(X) \geq \text{minsupp}\} \) est une représentation condensée \cite{PBTL99a}. L’algorithme CLOSE génère ces motifs efficacement.
+        
+        \paragraph{Motifs libres}
+        
+        Un motif \( X \) est \textbf{\( \delta \)-libre} s’il n’existe pas de règle \( X_1 \rightarrow X_2 \) basée sur \( X = X_1 \cup X_2 \) avec peu d’exceptions (\( \text{Supp}(X_1) - \text{Supp}(X_1 \cup X_2) \leq \delta \)) \cite{BB00}. L’ensemble \( \text{FreqFree}(E, \sigma, \delta) \) des motifs \( \delta \)-libres fréquents, combiné à sa bordure négative, offre une représentation \( \epsilon \)-adéquate \cite{BBR03}.
+        
+        \paragraph{Motifs essentiels}
+        
+        Un motif \( X \) est \textbf{essentiel} si son support disjonctif \( \text{Supp}(\vee X) \) diffère de celui de ses sous-ensembles directs \cite{CCL05}. L’union des motifs essentiels fréquents et de la bordure positive \( \text{Bd}^+(F) \) forme une couverture parfaite des motifs fréquents.
+        
+        \paragraph{Motifs non dérivables}
+        
+        Un motif \( I \) est \textbf{non dérivable} si son support ne peut être exactement déduit des supports de ses sous-ensembles via des règles d’inclusion-exclusion \cite{CG06}. L’ensemble \( \text{NDIRep} \) des motifs non dérivables fréquents est une représentation condensée.
+        
+        % \subsubsection{Conclusion}
+        % \label{sec:concl_assoc}
+        
+        % L’extraction des règles d’association est essentielle pour révéler des relations cachées dans les données. La recherche des motifs fréquents, bien que coûteuse, est optimisée par les représentations condensées (motifs fermés, libres, essentiels, non dérivables), qui réduisent le nombre de motifs à traiter tout en conservant l’information nécessaire. Cependant, le grand nombre de règles générées reste un défi, menant à des approches comme les bases de règles, sous-ensembles minimaux permettant de dériver toutes les règles valides, sujet exploré dans d’autres travaux.
+
+        
 
 
 \chapter{Outils et Langages utilisés}
 Il existe une multitude d’outils pour effectuer des tâches de Data Mining. Voici quelques-uns des outils les plus populaires, chacun offrant ses propres fonctionnalités et avantages :
 
-    \subsection{Python}
+    \section{Python}
     \textbf{Python} est un \emph{langage de programmation} polyvalent largement utilisé dans le domaine de la Data Science et du Data Mining. Il offre une vaste gamme de bibliothèques et de frameworks tels que Pandas, NumPy, scikit-learn, TensorFlow, etc., qui permettent d’effectuer diverses tâches d’analyse de données, de modélisation et de visualisation.
 
-    \subsection{RapidMiner}
+    \section{RapidMiner}
     \textbf{RapidMiner} est une plateforme de Data Science qui propose une interface conviviale pour la préparation des données, la modélisation, l’évaluation et le déploiement des modèles. Il offre une grande variété d’algorithmes de Data Mining et de fonctionnalités de traitement des données, ce qui en fait un choix populaire parmi les professionnels du domaine.
 
     
-    \subsection{WEKA}
+    \section{WEKA}
     \textbf{WEKA} (Waikato Environment for Knowledge Analysis) est un logiciel open source développé par l'Université de Waikato. L'outil de data mining est basé sur Java et peut être utilisé avec Windows, MacOS et Linux. Reconnu pour ses capacités étendues d'apprentissage machine, il prend en charge toutes les principales tâches d'exploration de données telles que la mise en grappe, l'association, la régression ou la classification. L'interface utilisateur graphique facilite l'accès au logiciel. En outre, WEKA offre la connexion aux bases de données SQL et peut traiter les données demandées. La force de WEKA réside dans la classification : l'outil de data mining est connu pour ses nombreuses classifications, y compris les réseaux neuronaux artificiels, les arbres de décision, les algorithmes ID3 ou C4.5. Cependant, WEKA est moins puissant dans d'autres techniques telles que l'analyse cluster. Seules les procédures les plus importantes sont proposées ici. Un autre inconvénient : WEKA peut rencontrer des problèmes de traitement si de grandes quantités de données doivent être manipulées ; en effet, l'outil d'exploration de données essaye de les charger toutes dans la mémoire de travail. Pour s'en sortir, WEKA propose une ligne de commande simple qui facilite le traitement de grandes quantités de données. 
 
     
-    \subsection{Orange}
+    \section{Orange}
     \textbf{Orange} est une suite logicielle open-source qui offre des outils de visualisation de données, de modélisation prédictive et de Data Mining. Il propose une interface graphique intuitive qui permet aux utilisateurs de créer et d’exécuter des workflows de traitement de données sans écrire de code, ce qui le rend accessible aux débutants et aux experts.
 
     
-    \subsection{KNIME}
+    \section{KNIME}
     \textbf{KNIME} est une plateforme open-source qui permet aux utilisateurs de créer des workflows visuels pour l’analyse des données et le déploiement de modèles. Il propose une large gamme de modules pour le Data Mining, la manipulation de données, la visualisation et plus encore. KNIME est apprécié pour sa flexibilité et sa capacité à intégrer des outils et des technologies externes.
     
-    \subsection{SAS}
+    \section{SAS}
     \textbf{SAS Enterprise Miner} est une solution logicielle robuste conçue pour l’analyse prédictive et le Data Mining. Il offre une large gamme d’algorithmes de modélisation avancés, une interface conviviale pour la création de workflows et des fonctionnalités de déploiement de modèles. SAS Enterprise Miner est largement utilisé dans les entreprises pour résoudre des problèmes complexes liés à l’analyse de données.
 
 
