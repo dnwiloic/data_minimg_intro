@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,14pt]{article}
 
 % Encodage et langue
 \usepackage[utf8]{inputenc}
@@ -6,6 +6,16 @@
 \usepackage[french]{babel}
 \usepackage{unicode-math}
 \usepackage{amssymb}
+\usepackage{extsizes}
+
+% interligne
+\usepackage{setspace}
+\onehalfspacing
+
+% COULEUR 
+\usepackage{color} % où xcolor selon l'installation
+\definecolor{Valentia}{RGB}{233,78,82}
+\definecolor{Titleblue}{RGB}{0, 0, 255}
 
 
 
@@ -23,17 +33,60 @@
 
 \usepackage{enumitem} 
 
-\DeclareUnicodeCharacter{2260}{\neq}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \title{ Introduction au Data Mining}
-\author{DNJOMOU YONMBA WILFRIED LOIC CM-UDS-24SCI0999 \\
-KENFACK LEONEL CM-UDS-17SCI0998\\
-SAGUEU WAKAM DILANE CM-UDS-24SCI1040\\}
+\author{DNJOMOU YONMBA WILFRIED LOIC  \\
+KENFACK LEONEL \\
+SAGUEU WAKAM DILANE \\}
 \date{Mars 2024}
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \centering
+    \includegraphics[width=\textwidth]{images/entete.png}\\[2.0cm]  
+
+    \textsc{\Large IAR418 - Fouille de Données}\\[0.5cm]
+
+    % Titre principal
+    \HRule \\[0.4cm]
+    \color{Titleblue}
+    \fontsize{20}{23.4}\selectfont
+    \huge \bfseries \underline{CHAPITRE I:} Introduction à Data Mining \\[0.4cm]
+    \color{black}
+
+    \HRule \\[0.4cm]
+
+
+    \vspace{2cm}
+
+    % Présenté par
+    \fontsize{15}{18}\selectfont
+    \color{black}
+    \textbf{Présenté par :}\\[0.5cm]
+    
+    \begin{tabular}{l l}
+        \textbf{DNJOMOU YONMBA WILFRIED LOIC} & \textbf{CM-UDS-24SCI0999} \\
+        \textbf{KENFACK LEONEL} & \textbf{CM-UDS-17SCI0998} \\
+        \textbf{SAGUEU WAKAM DILANE} & \textbf{CM-UDS-24SCI1040} \\
+    \end{tabular}
+
+    \vspace{1cm}
+
+    % SUPERVISEUR
+    \fontsize{15}{18}\selectfont
+    \color{black}
+    \textbf{Superviseur :} Pr. KENGNE TCHENDJI Vianney\\[0.5cm]
+
+    \vfill
+    
+    \hrulefill
+
+    \vspace{5mm}
+    
+    \centering{\large{\bf Année académique 2024-2025 }}
+\end{titlepage}
 
 \renewcommand{\contentsname}{Table des matières}
 
@@ -48,7 +101,11 @@ SAGUEU WAKAM DILANE CM-UDS-24SCI1040\\}
 
     \section*{Introduction}
     \addcontentsline{toc}{section}{Introduction}
-	À l’ère du numérique, la quantité de données générées croît de manière exponentielle, posant des défis mais offrant également des opportunités considérables. Le \textbf{Data Mining}, ou exploration de données, est une discipline qui permet d’extraire des informations pertinentes et exploitables à partir de vastes ensembles de données. Il se distingue d’autres domaines connexes tels que le \textbf{Big Data}, qui se concentre sur le stockage et la gestion des données massives, le \textbf{Machine Learning}, qui vise à créer des modèles prédictifs, et la \textbf{Business Intelligence}, orientée vers l’analyse et la visualisation des informations pour faciliter la prise de décision. L’objectif principal du Data Mining est la découverte de connaissances enfouies dans les données, afin de détecter des motifs cachés, d’optimiser la prise de décision et d’anticiper des tendances. Son essor est motivé par plusieurs facteurs, notamment l’explosion des données numériques, l’amélioration des capacités de calcul et le besoin croissant d’automatiser l’analyse d’informations complexes pour améliorer la productivité dans divers secteurs. Les applications du Data Mining sont vastes et couvrent de nombreux domaines : en santé, il permet la détection précoce de maladies ; en finance, il aide à l’évaluation des risques et à la détection de fraudes ; en marketing, il optimise les recommandations personnalisées ; en cybersécurité, il identifie les activités suspectes ; et en agriculture, il contribue à la gestion des cultures et des rendements. Dans la suite de notre travail, nous explorerons d’abord les principes fondamentaux et les enjeux du Data Mining. Nous détaillerons ensuite les \textbf{étapes de sa mise en œuvre}, les \textbf{techniques et algorithmes utilisés}, les outils et langages de programmation les plus répandus, avant d’aborder \textbf{ses limites et défis}, notamment ceux liés à la qualité des données, aux coûts de calcul et aux questions éthiques et de confidentialité. Cette analyse permettra de mieux comprendre l’impact du Data Mining dans un monde de plus en plus orienté vers la donnée.
+	À l’ère du numérique, la quantité de données générées croît de manière exponentielle. Cette explosion de données pose des défis majeurs mais constitue également une opportunité considérable pour l’extraction de connaissances. Face à cette abondance d’informations, il devient essentiel de développer des méthodes efficaces pour analyser et exploiter ces données de manière intelligente.
+
+     Le \textbf{Data Mining}, ou exploration de données, est une discipline qui permet d’extraire des informations pertinentes et exploitables à partir de vastes ensembles de données. Contrairement à d’autres domaines connexes tels que le Big Data, centré sur le stockage et la gestion des données massives, ou le Machine Learning, orienté vers la création de modèles prédictifs, le Data Mining se concentre sur la \textbf{découverte de motifs cachés} et l’optimisation des prises de décision. Son développement est porté par des facteurs clés comme l’essor des technologies numériques, l’amélioration des capacités de calcul et le besoin croissant d’automatiser l’analyse d’informations complexes. Aujourd’hui, il trouve des applications variées, de la santé à la finance, en passant par le marketing et l’agriculture. Cependant, malgré ses nombreux atouts, cette discipline soulève des défis importants liés à la qualité des données, aux coûts de calcul et aux enjeux éthiques.
+
+     Dans la suite de cette étude, nous commencerons par \textbf{définir le Data Mining} et examiner ses \textbf{enjeux}. Nous aborderons ensuite les \textbf{approches et processus} utilisés pour extraire des connaissances à partir des données. Puis, nous explorerons les \textbf{principales techniques }appliquées dans ce domaine avant de présenter les \textbf{outils et langages} les plus couramment employés. Enfin, nous analyserons les \textbf{défis et limites} auxquels le Data Mining est confronté, notamment en matière de qualité des données, de coûts de traitement et de considérations éthiques.
 \newpage
 
 \section{Définition et Enjeux du Data Mining}
@@ -145,53 +202,55 @@ Avant d’aller plus en détail sur ce qu’est le data mining, commençons par 
         \textbf{Le data mining}, ou \textit{exploration de données} ou encore \textit{forage de données}, est le processus d'analyse de grands volumes de données du big data pour découvrir des modèles et des tendances cachés. 
 
         Il utilise des techniques sophistiquées issues de la \textbf{statistique}, et de \textbf{l'intelligence artificielle} pour analyser en profondeur des données sous différents angles afin de tirer des informations utiles. Ces informations peuvent ensuite être utilisées par les entreprises pour augmenter un chiffre d’affaires ou pour réduire des coûts.
-        Grâce à l'exploration de données, les entreprises peuvent faire face à diverses situations.  
+        Grâce à l'exploration de données, les entreprises peuvent faire face à diverses situations telles que:   
 
-        \subsubsection{Prédire et anticiper les tendances}
+        \begin{itemize}
+            \item \textbf{Prédire et anticiper les tendances}
             En analysant les données passées, le Data mining permet de détecter des schémas et des tendances, ce qui aide les entreprises à anticiper les comportements futurs des clients, des marchés ou des produits. 
             Par exemple, une entreprise qui commercialise des produits peut utiliser le Data mining pour prédire les produits qui seront les plus populaires lors de certaines saisons ou événements.
-        
-        \subsubsection{Optimisation des processus internes}
+            \item \textbf{Optimisation des processus internes}:
             En identifiant les inefficacités et les opportunités d'amélioration dans les processus commerciaux, l'exploration de données permet aux entreprises de prendre des décisions plus éclairées pour optimiser leurs opérations. 
             Par exemple, une entreprise de fabrication peut utiliser l'exploration de données pour identifier les goulots d'étranglement dans sa chaîne d'approvisionnement et les résoudre pour améliorer l'efficacité globale.
-
-        \subsubsection{Segmentation de la clientèle et personnalisation}
+            \item \textbf{Segmentation de la clientèle et personnalisation: }
             Exploration de données permet aux entreprises de diviser leur base de clients en segments homogènes en fonction de diverses caractéristiques telles que le comportement d'achat, les préférences ou la démographie. Cette segmentation permet ensuite de personnaliser les offres, les campagnes marketing et les services pour répondre aux besoins spécifiques de chaque segment.
-
-        \subsubsection{Détection de fraudes et de risques}
+            \item \textbf{Détection de fraudes et de risques :}
             En analysant les schémas de comportement et les anomalies dans les données, le Data mining peut aider les entreprises à détecter les activités frauduleuses ou à haut risque. Que ce soit dans les transactions financières, les demandes de crédit ou les réclamations d'assurance.
-
-        \subsubsection{Mesure de l’efficacité des campagnes marketing}
+            \item \textbf{Mesure de l’efficacité des campagnes marketing :}
             Les entreprises évaluent l’impact réel de leurs campagnes marketing. Cela permet d’ajuster les stratégies marketing pour des résultats optimaux.
-        
-        \subsubsection{Développement de nouveaux produits et services}
+            \item \textbf{Le Développement de nouveaux produits et services :}
             Le Data Mining offre d’identifier les besoins non satisfaits des clients en analysant leurs préférences et leurs comportements. Cette connaissance précieuse peut orienter le développement de nouveaux produits et services adaptés au marché.
+        \end{itemize}
 
 
-    \subsection{Big data et data mining} 
-        \textbf{Le Big data} et \textbf{le data mining} concernent l’utilisation des grands ensembles de données pour gérer la collecte ou la création de rapports destinés aux entreprises ou à d’autres destinataires. Le data mining implique de trouver des modèles intéressants à partir de jeux de données. Big data implique le stockage et le traitement à grande échelle (souvent à l’échelle d’un datacenter ) de grands ensembles de données. Ainsi, data mining fait partie du big data(par exemple, la recherche de modèles d’achat à partir de journaux d’achats volumineux). Toutes les tâches du Big Data ne sont pas des opérations du data mining (par exemple, indexation à grande échelle). Toutes les tâches de data mining ne font pas partie du Big Data (par exemple, l’exploration de données sur un petit fichier pouvant être effectué sur un seul nœud).
-        
-        
-    \subsection{Data mining et statistique} 
-        ​Le data mining et la statistique sont deux disciplines étroitement liées, collaborant pour extraire des informations significatives à partir de vastes ensembles de données. 
-        La statistique fournit les bases théoriques essentielles au data mining. Les techniques statistiques, telles que l'analyse des données, la modélisation et l'inférence, sont utilisées pour identifier des modèles et des tendances dans les données. Elles apportent une rigueur méthodologique au processus de data mining, assurant la validité des résultats obtenus. Par exemple, des méthodes comme la régression, l'analyse factorielle ou la classification sont couramment employées pour explorer et interpréter les données.
-        
-        
-    \subsection{Data mining et machine learning} 
-        Comme nous l'avons dit plus haut, le data mining, ou exploration de données, consiste à analyser de vastes ensembles de données pour identifier des modèles, des tendances ou des relations cachées. Il s'agit d'un processus exploratoire visant à extraire des informations utiles à partir de données existantes, souvent en utilisant des techniques statistiques et analytiques.
-        
-        \textbf{Le machine learning}, ou \textit{apprentissage automatique}, quant à lui est une branche de l'intelligence artificielle qui développe des algorithmes permettant aux systèmes informatiques d'apprendre à partir de données et de faire des prédictions ou de prendre des décisions sans être explicitement programmés pour chaque tâche.
-        
-        Bien que distincts, le data mining et le machine learning sont complémentaires. Le data mining peut utiliser des techniques de machine learning pour améliorer l'analyse des données, tandis que le machine learning peut bénéficier des informations extraites par le data mining pour entraîner ses modèles. 
-        
-        En résumé, le data mining se concentre sur l'extraction d'informations à partir de données existantes, tandis que le machine learning développe des modèles capables d'apprendre et de généraliser à partir de ces données pour prédire ou automatiser des tâches.
-        
-        
-    \subsection{Data mining et business intelligence} 
-        \textbf{La BI (Business Intelligence)} englobe les technologies, processus et outils qui transforment les données brutes en informations significatives et utiles pour la prise de décision. Elle se concentre sur l'analyse descriptive, fournissant une vue d'ensemble des performances passées et actuelles de l'entreprise à travers des tableaux de bord, des rapports et des visualisations. L'objectif principal de la BI est d'améliorer les opérations commerciales en offrant une compréhension claire des données historiques et en cours.
-        
-        La BI se concentre sur le suivi et l'amélioration des opérations commerciales en analysant les données historiques et actuelles, tandis que le Data Mining cherche à découvrir des modèles et des relations cachés pour prédire des résultats futurs. Le Data Mining peut être intégré dans les processus de BI pour enrichir les analyses en fournissant des insights prédictifs, permettant ainsi aux entreprises de prendre des décisions plus éclairées et proactives.
-\newpage
+
+    \subsection{Domaine associés au data mining} 
+        \begin{itemize}
+            \item \textbf{Big data et data mining :} 
+                \textbf{Le Big data} et \textbf{le data mining} concernent l’utilisation des grands ensembles de données pour gérer la collecte ou la création de rapports destinés aux entreprises ou à d’autres destinataires. Le data mining implique de trouver des modèles intéressants à partir de jeux de données. Big data implique le stockage et le traitement à grande échelle (souvent à l’échelle d’un datacenter ) de grands ensembles de données. Ainsi, data mining fait partie du big data(par exemple, la recherche de modèles d’achat à partir de journaux d’achats volumineux). Toutes les tâches du Big Data ne sont pas des opérations du data mining (par exemple, indexation à grande échelle). Toutes les tâches de data mining ne font pas partie du Big Data (par exemple, l’exploration de données sur un petit fichier pouvant être effectué sur un seul nœud).
+                
+                
+            \item \textbf{Data mining et statistique: } 
+                ​Le data mining et la statistique sont deux disciplines étroitement liées, collaborant pour extraire des informations significatives à partir de vastes ensembles de données. 
+                La statistique fournit les bases théoriques essentielles au data mining. Les techniques statistiques, telles que l'analyse des données, la modélisation et l'inférence, sont utilisées pour identifier des modèles et des tendances dans les données. Elles apportent une rigueur méthodologique au processus de data mining, assurant la validité des résultats obtenus. Par exemple, des méthodes comme la régression, l'analyse factorielle ou la classification sont couramment employées pour explorer et interpréter les données.
+                
+                
+            \item \textbf{Data mining et machine learning: } 
+                Comme nous l'avons dit plus haut, le data mining, ou exploration de données, consiste à analyser de vastes ensembles de données pour identifier des modèles, des tendances ou des relations cachées. Il s'agit d'un processus exploratoire visant à extraire des informations utiles à partir de données existantes, souvent en utilisant des techniques statistiques et analytiques.
+                
+                \textbf{Le machine learning}, ou \textit{apprentissage automatique}, quant à lui est une branche de l'intelligence artificielle qui développe des algorithmes permettant aux systèmes informatiques d'apprendre à partir de données et de faire des prédictions ou de prendre des décisions sans être explicitement programmés pour chaque tâche.
+                
+                Bien que distincts, le data mining et le machine learning sont complémentaires. Le data mining peut utiliser des techniques de machine learning pour améliorer l'analyse des données, tandis que le machine learning peut bénéficier des informations extraites par le data mining pour entraîner ses modèles. 
+                
+                En résumé, le data mining se concentre sur l'extraction d'informations à partir de données existantes, tandis que le machine learning développe des modèles capables d'apprendre et de généraliser à partir de ces données pour prédire ou automatiser des tâches.
+                
+                
+            \item \textbf{Data mining et business intelligence: } 
+                \textbf{La BI (Business Intelligence)} englobe les technologies, processus et outils qui transforment les données brutes en informations significatives et utiles pour la prise de décision. Elle se concentre sur l'analyse descriptive, fournissant une vue d'ensemble des performances passées et actuelles de l'entreprise à travers des tableaux de bord, des rapports et des visualisations. L'objectif principal de la BI est d'améliorer les opérations commerciales en offrant une compréhension claire des données historiques et en cours.
+                
+                La BI se concentre sur le suivi et l'amélioration des opérations commerciales en analysant les données historiques et actuelles, tandis que le Data Mining cherche à découvrir des modèles et des relations cachés pour prédire des résultats futurs. Le Data Mining peut être intégré dans les processus de BI pour enrichir les analyses en fournissant des insights prédictifs, permettant ainsi aux entreprises de prendre des décisions plus éclairées et proactives.
+        \end{itemize}
+            
+% \newpage
 
 \section{Approches et Processus du Data Mining}
     Le Data Mining est un processus complexe qui ne se limite pas à l’application d’algorithmes sur des données brutes. Il suit une démarche structurée qui permet d’extraire des connaissances exploitables à partir de vastes ensembles de données. Au fil des années, plusieurs méthodologies ont été développées pour encadrer cette démarche et garantir des résultats pertinents et reproductibles.
@@ -203,9 +262,8 @@ Avant d’aller plus en détail sur ce qu’est le data mining, commençons par 
     \subsection{Le processus de découverte de connaissances (KDD)}
         Face à l'énorme quantité de données stockées dans des fichiers, des bases de données et autres référentiels, il est de plus en plus important, voire nécessaire, de développer des outils performants d'analyse et d'interprétation de ces données, ainsi que d'extraction de connaissances pertinentes susceptibles d'aider à la prise de décision.
         L'exploration de données, également appelée découverte de connaissances dans les bases de données (KDD: Knowledge Discovery in Databases), désigne l'extraction non triviale d'informations implicites, jusqu'alors inconnues et potentiellement utiles, à partir de données stockées dans des bases de données. Bien que le data mining et la découverte de connaissances dans les bases de données (KDD) soient souvent considérées comme des synonymes, le data mining fait en réalité partie du processus de découverte de connaissances. La figure suivante (Figure 2.1) illustre la fouille de données comme une étape d'un processus itératif de découverte de connaissances.\\
-        \clearpage
 
-        \begin{figure}[]
+        \begin{figure}[h]
             \centering
             \includegraphics[width=0.75\textwidth]{KDD_data_mining}
             \caption{Data mining : coeur de KDD.}
@@ -239,45 +297,46 @@ Avant d’aller plus en détail sur ce qu’est le data mining, commençons par 
             \item En tant que \textbf{modèle de processus}, CRISP-DM offre un aperçu du cycle de vie de l'exploration de données.
         \end{itemize}
         
-        \begin{figure}[htbp]
+        \begin{figure}[h]
                 \centering
                 \includegraphics[width=0.75\textwidth]{crispdm}
                 \caption{Le cycle de vie de l'exploration des données.}
-                \label{fig:mesh1}
         \end{figure} 
 
         \subsubsection{Les étapes de CRISP-DM}
         Le modèle de cycle de vie comporte six(6) phases dotées de flèches indiquant les dépendances les plus importantes et les plus fréquentes entre les phases. La séquence des phases n'est pas strictement établie. De fait, les projets, pour la plupart, passent d'une phase à l'autre en fonction des besoins. 
 
-            \subsubsubsection{Etape 1 : La compréhension du besoin client ou business understanding}
+        \begin{enumerate}
+            \item \textbf{Etape 1 : La compréhension du besoin client ou business understanding}
             Dans cette phase initiale, l’équipe de data science travaille en collaboration avec les parties prenantes afin de comprendre les objectifs commerciaux, les exigences, les contraintes du projet ainsi que les bénéfices attendus.\\ 
             Les ressources nécessaires pour réaliser le projet, tels que le budget, les compétences techniques et l'accès aux données, sont évalués. Les problèmes à résoudre sont identifiés et les critères permettant de mesurer le succès du projet sont définis. \\
             Cette étape est essentielle pour garantir la bonne atteinte des objectifs du projet.
     
-            \subsubsubsection{Etape 2 : La compréhension des données ou data understanding}
+            \item \textbf{Etape 2 : La compréhension des données ou data understanding}
             Cette phase consiste à collecter, explorer et évaluer toutes les données disponibles pour le projet. L'équipe de data science analyse ces dernières pour comprendre leur structure, leur qualité, leurs éventuels problèmes, leur pertinence et leur disponibilité. \\
             Cela permet d’identifier les valeurs manquantes, ou les erreurs qui pourraient affecter les analyses suivantes. Elle se concerte ensuite avec les experts métiers pour identifier des pistes de résolution des problèmes constatés et ainsi aider à interpréter les données.
     
             
-            \subsubsubsection{Etape 3 : La préparation des données}
+            \item \textbf{Etape 3 : La préparation des données}
             Une fois que les données ont été évaluées, il faut à présent sélectionner les variables et les échantillons pertinents pour l’analyse, en fonction des objectifs qui ont été fixés.\\ 
             Les données sont ensuite nettoyées et, si nécessaire, transformées. Cela peut inclure la gestion des valeurs manquantes, l'échantillonnage des données et la création de variables dérivées. Si plusieurs sources de données sont utilisées, elles sont intégrées pour créer un ensemble de données cohérent.\\ 
             Cette étape monopolise plus de la moitié du temps sur l’ensemble du projet.
             
-            \subsubsubsection{Etape 4 : La modélisation ou modeling}
+            \item \textbf{Etape 4 : La modélisation ou modeling}
             Dans cette phase, à partir de techniques d'analyse des données, l’équipe de data science construit des modèles prédictifs ou des modèles descriptifs, en fonction des objectifs du projet. Plusieurs itérations ont lieu entre les étapes de préparation et de modélisation pour affiner l’utilisation de certains algorithmes particuliers. \\
             L’étape du modeling génère souvent plusieurs modèles de Data Mining qui répondent tous à la même problématique.
     
-            \subsubsubsection{Etape 5 : L’évaluation}
+            \item \textbf{Etape 5 : L’évaluation}
             Une fois que les modèles ont été construits, ils sont évalués pour déterminer leur qualité et leur précision. Cette étape du cycle permet de s’assurer que le modèle permet d’atteindre les objectifs du projet. \\
             Les performances des modèles sont mesurées à l'aide de métriques appropriées et comparées aux critères de succès définis dans la première phase du cycle. Si les résultats ne répondent pas aux attentes ou s'il y a des problèmes identifiés, les étapes précédentes peuvent être révisées et répétées pour améliorer les performances du modèle
     
     
-            \subsubsubsection{Etape 6 : Le déploiement}
+            \item \textbf{Etape 6 : Le déploiement}
             Enfin, les résultats du projet sont présentés aux parties prenantes et sont intégrés si nécessaire dans les systèmes existants pour aider la prise de décision. Cette phase implique souvent la création de rapports, de visualisations ou d'autres formes de communication pour rendre les résultats compréhensibles et utilisables par ceux qui ne seraient pas spécialistes des données. \\
             A cette étape, le modèle est performant et répond correctement à la problématique.
+        \end{enumerate}
 
-        \subsubsection{Une approche agile }
+        \textbf{Une approche agile : }
         Il est important de noter que la méthodologie CRISP-DM est itérative, ce qui signifie que les différentes phases peuvent être révisées et répétées en fonction des résultats et des besoins du projet.\\
         A chaque étape d’une itération, l’équipe rédige un document qui récapitule ce qui a été fait ou ce qui a été trouvé. Ce document est mis à jour à chaque itération pour fournir ensuite un livrable complet au client.
 
@@ -784,29 +843,25 @@ En conclusion, la régression est une technique puissante pour la prédiction nu
 \section{Outils et Langages utilisés}
 Il existe une multitude d’outils pour effectuer des tâches de Data Mining. Voici quelques-uns des outils les plus populaires, chacun offrant ses propres fonctionnalités et avantages :
 
-    \subsection{Le language R}
-    \textbf{R} est un \emph{langage de programmation} statistique avec de nombreuses bibliothèques pour la fouille de données.  Un des atouts de R est la facilité avec laquelle des graphiques bien conçus, de qualité digne de publication, peuvent être produits, contenant des symboles mathématiques et des formules si besoin est. Un grand soin a été accordé à la prise en charge des options par défaut pour les choix mineurs dans la conception des graphiques, mais l'utilisateur conserve le contrôle complet de ces options. R est publié selon les termes de la licence GNU sous forme de code source. Il se compile et s'exécute sous une grande variété de plates-formes UNIX et de systèmes similaires, y compris FreeBSD et Linux, Windows et MacOS.
+    \begin{itemize}
+        \item \textbf{R} est un \emph{langage de programmation} statistique avec de nombreuses bibliothèques pour la fouille de données.  Un des atouts de R est la facilité avec laquelle des graphiques bien conçus, de qualité digne de publication, peuvent être produits, contenant des symboles mathématiques et des formules si besoin est. Un grand soin a été accordé à la prise en charge des options par défaut pour les choix mineurs dans la conception des graphiques, mais l'utilisateur conserve le contrôle complet de ces options. R est publié selon les termes de la licence GNU sous forme de code source. Il se compile et s'exécute sous une grande variété de plates-formes UNIX et de systèmes similaires, y compris FreeBSD et Linux, Windows et MacOS.
+        
+        \item \textbf{Python} est un \emph{langage de programmation} polyvalent largement utilisé dans le domaine de la Data Science et du Data Mining. Il offre une vaste gamme de bibliothèques et de frameworks tels que Pandas, NumPy, scikit-learn, TensorFlow, etc., qui permettent d’effectuer diverses tâches d’analyse de données, de modélisation et de visualisation.
     
-    \subsection{Python}
-    \textbf{Python} est un \emph{langage de programmation} polyvalent largement utilisé dans le domaine de la Data Science et du Data Mining. Il offre une vaste gamme de bibliothèques et de frameworks tels que Pandas, NumPy, scikit-learn, TensorFlow, etc., qui permettent d’effectuer diverses tâches d’analyse de données, de modélisation et de visualisation.
+        \item \textbf{RapidMiner} est une plateforme de Data Science qui propose une interface conviviale pour la préparation des données, la modélisation, l’évaluation et le déploiement des modèles. Il offre une grande variété d’algorithmes de Data Mining et de fonctionnalités de traitement des données, ce qui en fait un choix populaire parmi les professionnels du domaine.
+    
+        
+        \item \textbf{WEKA} (Waikato Environment for Knowledge Analysis) est un logiciel open source développé par l'Université de Waikato. L'outil de data mining est basé sur Java et peut être utilisé avec Windows, MacOS et Linux. Reconnu pour ses capacités étendues d'apprentissage machine, il prend en charge toutes les principales tâches d'exploration de données telles que la mise en grappe, l'association, la régression ou la classification. L'interface utilisateur graphique facilite l'accès au logiciel. En outre, WEKA offre la connexion aux bases de données SQL et peut traiter les données demandées. La force de WEKA réside dans la classification : l'outil de data mining est connu pour ses nombreuses classifications, y compris les réseaux neuronaux artificiels, les arbres de décision, les algorithmes ID3 ou C4.5. Cependant, WEKA est moins puissant dans d'autres techniques telles que l'analyse cluster. Seules les procédures les plus importantes sont proposées ici. Un autre inconvénient : WEKA peut rencontrer des problèmes de traitement si de grandes quantités de données doivent être manipulées ; en effet, l'outil d'exploration de données essaye de les charger toutes dans la mémoire de travail. Pour s'en sortir, WEKA propose une ligne de commande simple qui facilite le traitement de grandes quantités de données. 
+    
+        
+        \item \textbf{Orange} est une suite logicielle open-source qui offre des outils de visualisation de données, de modélisation prédictive et de Data Mining. Il propose une interface graphique intuitive qui permet aux utilisateurs de créer et d’exécuter des workflows de traitement de données sans écrire de code, ce qui le rend accessible aux débutants et aux experts.
+    
+        
+        \item \textbf{KNIME} est une plateforme open-source qui permet aux utilisateurs de créer des workflows visuels pour l’analyse des données et le déploiement de modèles. Il propose une large gamme de modules pour le Data Mining, la manipulation de données, la visualisation et plus encore. KNIME est apprécié pour sa flexibilité et sa capacité à intégrer des outils et des technologies externes.
+        
+        \item \textbf{SAS Enterprise Miner} est une solution logicielle robuste conçue pour l’analyse prédictive et le Data Mining. Il offre une large gamme d’algorithmes de modélisation avancés, une interface conviviale pour la création de workflows et des fonctionnalités de déploiement de modèles. SAS Enterprise Miner est largement utilisé dans les entreprises pour résoudre des problèmes complexes liés à l’analyse de données.
 
-    \subsection{RapidMiner}
-    \textbf{RapidMiner} est une plateforme de Data Science qui propose une interface conviviale pour la préparation des données, la modélisation, l’évaluation et le déploiement des modèles. Il offre une grande variété d’algorithmes de Data Mining et de fonctionnalités de traitement des données, ce qui en fait un choix populaire parmi les professionnels du domaine.
-
-    
-    \subsection{WEKA}
-    \textbf{WEKA} (Waikato Environment for Knowledge Analysis) est un logiciel open source développé par l'Université de Waikato. L'outil de data mining est basé sur Java et peut être utilisé avec Windows, MacOS et Linux. Reconnu pour ses capacités étendues d'apprentissage machine, il prend en charge toutes les principales tâches d'exploration de données telles que la mise en grappe, l'association, la régression ou la classification. L'interface utilisateur graphique facilite l'accès au logiciel. En outre, WEKA offre la connexion aux bases de données SQL et peut traiter les données demandées. La force de WEKA réside dans la classification : l'outil de data mining est connu pour ses nombreuses classifications, y compris les réseaux neuronaux artificiels, les arbres de décision, les algorithmes ID3 ou C4.5. Cependant, WEKA est moins puissant dans d'autres techniques telles que l'analyse cluster. Seules les procédures les plus importantes sont proposées ici. Un autre inconvénient : WEKA peut rencontrer des problèmes de traitement si de grandes quantités de données doivent être manipulées ; en effet, l'outil d'exploration de données essaye de les charger toutes dans la mémoire de travail. Pour s'en sortir, WEKA propose une ligne de commande simple qui facilite le traitement de grandes quantités de données. 
-
-    
-    \subsection{Orange}
-    \textbf{Orange} est une suite logicielle open-source qui offre des outils de visualisation de données, de modélisation prédictive et de Data Mining. Il propose une interface graphique intuitive qui permet aux utilisateurs de créer et d’exécuter des workflows de traitement de données sans écrire de code, ce qui le rend accessible aux débutants et aux experts.
-
-    
-    \subsection{KNIME}
-    \textbf{KNIME} est une plateforme open-source qui permet aux utilisateurs de créer des workflows visuels pour l’analyse des données et le déploiement de modèles. Il propose une large gamme de modules pour le Data Mining, la manipulation de données, la visualisation et plus encore. KNIME est apprécié pour sa flexibilité et sa capacité à intégrer des outils et des technologies externes.
-    
-    \subsection{SAS}
-    \textbf{SAS Enterprise Miner} est une solution logicielle robuste conçue pour l’analyse prédictive et le Data Mining. Il offre une large gamme d’algorithmes de modélisation avancés, une interface conviviale pour la création de workflows et des fonctionnalités de déploiement de modèles. SAS Enterprise Miner est largement utilisé dans les entreprises pour résoudre des problèmes complexes liés à l’analyse de données.
+    \end{itemize}
 
 
 
@@ -883,6 +938,129 @@ Cependant, le Data Mining n'est pas sans défis. La qualité et les biais des do
 
 En conclusion, le Data Mining est un domaine en constante évolution, dont l'importance ne fait que croître avec l'explosion des données. Les avancées technologiques et les nouvelles méthodologies continueront d'améliorer notre capacité à extraire des connaissances précieuses, tout en relevant les défis éthiques et techniques. Pour les entreprises et les chercheurs, maîtriser le Data Mining est devenu indispensable pour rester compétitif et innovant dans un monde de plus en plus orienté vers la donnée.
 \nocite{*} 
+
+ \newpage
+     
+    \section*{\centering \underline{\textbf{\huge Fiche TD}}}
+    \addcontentsline{toc}{section}{Fiche TD}
+    \vspace{1cm}
+    
+    \textbf{Exercice 1 : Questions de cours} \\
+    
+    \begin{enumerate}[leftmargin=*]
+        \item Après avoir défini Data Mining, établir la différence entre Data Mining et extraction de données à partir de connaissances (KDD ou ECD)
+        
+        \item Quelles sont les différentes étapes du Data Mining ?
+        
+        \item Expliquer l'étape de nettoyage de données dans le KDD
+        
+        \item Lister quelques facteurs ayant favorisé la naissance du Data Mining
+        
+        \item Quel lien faites-vous entre Data Warehouse et Data Mining ?
+        
+        \item Lister quelques techniques de Data Mining
+        
+        \item Présenter en quoi consiste l'apprentissage supervisé et l'apprentissage non supervisé
+        
+        \item Énumérer quelques domaines dans lesquels l'exploration de données peut être appliquée
+        
+        \item Quelle différence existe-t-il entre une donnée continue et une donnée discrète ?
+        
+        \item Pourquoi l'étape de construction et de validation du modèle est-elle importante dans le Data Mining ?
+        
+        \item Donner trois méthodes de calcul de distances entre clusters
+        
+        \item Expliquez brièvement le fonctionnement des méthodes hiérarchiques dans le clustering
+        
+        \item Quelles sont les trois motivations principales qui poussent à garder des données très anciennes ?
+        
+        \item Quels sont les avantages et inconvénients des arbres de décision ?
+        
+    \end{enumerate}
+
+    \vspace{1cm}
+    \noindent
+    \textbf{Exercice 2}
+    
+    \begin{enumerate}[leftmargin=*, label=\arabic*)]
+        \item Expliquer les différences principales entre le datamining et les requêtes classiques appliquées sur les bases de données relationnelles (SQL par exemple).
+        
+        \item Proposer et décrire brièvement une solution issue du «~datamining~» aux situations suivantes :
+        \begin{enumerate}[label=\alph*)]
+            \item Les responsables d’un supermarché veulent présenter certains produits \( X_i \) (\( i = 1 \ldots n \)) en «~promotion~» afin de développer leurs ventes. Ils veulent aussi éviter de faire la promotion sur un groupe de produits qui sont souvent achetés ensemble.
+            
+            \item L’objectif est de minimiser le nombre de clients qui changent d’opérateurs dans une entreprise de téléphonie. On dispose d’un historique sur un ensemble de clients (Frais mensuels, Nombre d’appels échoués, nombre de plaintes, \ldots)
+            
+            \item On voudrait personnaliser la stratégie de marketing en fonction de certaines caractéristiques de la clientèle. Au lieu d’envoyer les mêmes messages à tous les clients, on voudrait cibler chaque type de clientèle par une stratégie différente parmi cinq (5) étudiées.
+            
+            \item On dispose d’une base d’images. L’objectif est de trouver des images semblables à une image requête.
+        \end{enumerate}
+        
+        \item On voudrait «~fouiller~» des données issues du média social Facebook. L’objectif est de découvrir la classe de la personne «~influente ou non~». On suppose disposer de plusieurs attributs de chaque acteur dans le réseau (nombre d’amis, nombre de messages postés, nombre de «~j'aime~», \ldots).
+        \begin{enumerate}[label=\alph*)]
+            \item Proposer une représentation de ces données.
+            \item Quelle est la tâche du datamining adéquate (parmi celles étudiées) pour extraire ce type de connaissance ?
+            \item Comment peut-on avoir des données pour la phase de validation ?
+            \item Comment peut-on valider les résultats trouvés ?
+        \end{enumerate}
+    \end{enumerate}
+
+    \vspace{1cm}
+    \noindent
+    \textbf{Exercice 3}
+    On considère l'ensemble de données \(\mathcal{X}\) suivant ayant les attributs \(A, B, C\) et \(D\):
+    
+    \[
+    \begin{array}{|c|*{10}{c|}}
+    \hline
+     & x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8 & x_9 & x_{10} \\
+    \hline
+    A & a_1 & a_1 & a_2 & a_2 & a_2 & a_1 & a_2 & a_3 & a_3 & a_3 \\
+    B & b_1 & b_2 & b_2 & b_1 & b_2 & b_2 & b_1 & b_1 & b_1 & b_2 \\
+    C & c_1 & c_2 & c_3 & c_1 & c_1 & c_1 & c_1 & c_2 & c_3 & c_2 \\
+    D & d_2 & d_2 & d_1 & d_1 & d_1 & d_2 & d_1 & d_2 & d_1 & d_2 \\
+    \hline
+    \text{Classe} & + & - & - & - & + & + & - & + & + & + \\
+    \hline
+    \end{array}
+    \]
+    
+    \begin{enumerate}[label=(\alph*)]
+        \item Construire l'arbre de décision correspondant à l'ensemble \(\mathcal{X}\) en utilisant l'algorithme ID3.
+        
+        \item Prédire la classe de l'exemple ayant les attributs \((a_2, b_1, c_3, d_1)\).
+    \end{enumerate}
+
+    \vspace{1cm}
+    \noindent
+    \textbf{Exercice 4}
+    
+    \begin{enumerate}[leftmargin=*, label=\arabic*)]
+        \item Expliquer comment le développement des bases de données a donné naissance au data mining.
+        
+        \item Décrire les différentes étapes du processus de data mining.
+        
+        \item Donner des exemples d'application de data mining non vus dans le cours (de votre environnement de préférence).
+        
+        \item Supposons votre tâche en tant qu'informaticien dans une grande université est d'analyser et comprendre les résultats obtenus par les étudiants :
+        \begin{enumerate}[label=\alph*)]
+            \item Imaginez des questions auxquelles peut-on répondre à partir des résultats stockés.
+            \item Quel type de données peut-on avoir et quel traitement vous envisagez ?
+            \item Quels résultats peut-on avoir à partir de telle analyse ?
+        \end{enumerate}
+        
+        \item Décrire brièvement les systèmes avancés de bases de données suivants et leurs applications : 
+        \begin{itemize}[leftmargin=4mm]
+            \item Bases de données spatiales
+            \item BDD textuelles
+            \item BDD multimédia
+            \item BDD web
+        \end{itemize}
+        Proposer des applications de data mining dans chacun de ces systèmes.
+        
+        \item Donner, à partir d'une recherche dans le web, trois logiciels de data mining avec une brève description.
+    \end{enumerate}
+    
  \newpage
  
 \bibliographystyle{plainurl}
